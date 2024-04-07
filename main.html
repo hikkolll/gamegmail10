@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เปลี่ยนเลขเป็นสี</title>
+    <style>
+        /* CSS สำหรับการจัดรูปแบบหน้าเว็บ */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .number-button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .color-box {
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>เปลี่ยนเลขเป็นสี</h1>
+
+    <!-- HTML สำหรับปุ่มกดตัวเลข -->
+    <button class="number-button" onclick="handleButtonClick(1)">1</button>
+    <button class="number-button" onclick="handleButtonClick(2)">2</button>
+    <button class="number-button" onclick="handleButtonClick(3)">3</button>
+    <button class="number-button" onclick="handleButtonClick(4)">4</button>
+    <button class="number-button" onclick="handleButtonClick(5)">5</button>
+    <button class="number-button" onclick="handleButtonClick(6)">6</button>
+    <button class="number-button" onclick="handleButtonClick(7)">7</button>
+    <button class="number-button" onclick="handleButtonClick(8)">8</button>
+    <button class="number-button" onclick="handleButtonClick(9)">9</button>
+    <button class="number-button" onclick="handleButtonClick(0)">0</button>
+
+    <!-- ปุ่มสำหรับลบตัวเลข -->
+    <button class="number-button" onclick="handleDelete()">Delete</button>
+
+    <!-- ปุ่มสำหรับวางตัวเลขที่คัดลอก -->
+    <button class="number-button" onclick="handlePaste()">Paste</button>
+
+    <!-- แสดงตัวเลขที่ถูกกด -->
+    <div id="number-display"></div>
+
+    <!-- แสดงสีตามตัวเลขที่ถูกกด -->
+    <div id="color-display">
+        <div class="color-box" id="color-box-1"></div>
+        <div class="color-box" id="color-box-2"></div>
+        <div class="color-box" id="color-box-3"></div>
+        <div class="color-box" id="color-box-4"></div>
+        <div class="color-box" id="color-box-5"></div>
+    </div>
+
+    <!-- สคริปต์ JavaScript สำหรับการโต้ตอบของปุ่ม -->
+    <script>
+        var numberDisplayElement = document.getElementById('number-display');
+        var colorBoxes = [
+            document.getElementById('color-box-1'),
+            document.getElementById('color-box-2'),
+            document.getElementById('color-box-3'),
+            document.getElementById('color-box-4'),
+            document.getElementById('color-box-5')
+        ];
+        var currentNumber = '';
+
+        function handleButtonClick(number) {
+            currentNumber += number;
+            updateNumberDisplay();
+            updateColorDisplay();
+        }
+
+        function handleDelete() {
+            currentNumber = currentNumber.slice(0, -1);
+            updateNumberDisplay();
+            updateColorDisplay();
+        }
+
+        function handlePaste() {
+            var copiedNumber = prompt("กรุณาวางตัวเลขที่คุณคัดลอกที่นี่:");
+            if (copiedNumber != null) {
+                currentNumber += copiedNumber;
+                updateNumberDisplay();
+                updateColorDisplay();
+            }
+        }
+
+        function updateNumberDisplay() {
+            numberDisplayElement.textContent = currentNumber;
+        }
+
+        function updateColorDisplay() {
+            var colorMap = {
+                '0': '#e51c23',
+                '1': '#e91e63',
+                '2': '#673ab7',
+                '3': '#9c27b0',
+                '4': '#5677fc',
+                '5': '#3f51b5', // เพิ่มเงื่อนไขสำหรับตัวเลขอื่นๆ ตามต้องการ
+                '6': '#259b24',
+                '7': '#3a3420',
+                '8': '#a47454',
+                '9': '#212121'
+            };
+
+            var numberLength = currentNumber.length;
+            for (var i = 0; i < colorBoxes.length; i++) {
+                if (i < numberLength) {
+                    colorBoxes[i].style.backgroundColor = colorMap[currentNumber.charAt(i)];
+                } else {
+                    colorBoxes[i].style.backgroundColor = 'transparent'; // เซ็ตเป็นสี透明หากไม่มีตัวเลข
+                }
+            }
+        }
+    </script>
+</body>
+</html>
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>เมล 10</title>
+        <style>
+            /* CSS for styling */
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+            }
+            
+            .embedded-website {
+                width: 80%; /* กำหนดความกว้างของ iframe */
+                height: 400px; /* กำหนดความสูงของ iframe */
+                border: 1px solid #ccc; /* เส้นขอบของ iframe */
+                margin: 20px auto; /* การจัดวางตามศูนย์กลางแนวนอน */
+            }
+        </style>
+    </head>
+    <body>
+        <h1>เมล 10</h1>
+    
+        <!-- แสดงเว็บไซต์อื่นๆ ด้วย iframe -->
+        <iframe class="embedded-website" src="https://10minutemail.net/?lang=th" frameborder="0"></iframe>
+        <iframe class="embedded-website" src="https://tmailor.com/th/" frameborder="0"></iframe>
+        <iframe class="embedded-website" src="https://mail.tm/th/" frameborder="0"></iframe>
+    
+        <!-- สามารถเพิ่ม iframe เพิ่มเติมตามต้องการ -->
+    </body>
+    </html>
+
+    
+
+</body>
+</html>
